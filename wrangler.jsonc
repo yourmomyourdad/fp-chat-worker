@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fp-chat",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-21",
+  "workers_dev": true,
+
+  "kv_namespaces": [
+    {
+      "binding": "CHAT",
+      "id": "5fcc5cf9f5aa43d79fe60245536ccbd8"
+    }
+  ],
+
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "CHAT_ROOM",
+        "class_name": "ChatRoom"
+      }
+    ]
+  },
+
+  "exports": {
+    "ChatRoom": {
+      "type": "durable-object",
+      "storage": "sqlite"
+    }
+  }
+}
